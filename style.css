@@ -552,22 +552,33 @@ section {
     justify-self: center;
 }
 
-/* Dashed Connectors - visible lines connecting to dots */
+/* Dashed Connectors - only visible on text side */
 .timeline-connector-left,
 .timeline-connector-right {
     height: 2px;
-    border-top: 2px dashed var(--color-text);
     position: relative;
     background: var(--color-white);
 }
 
-/* Make connectors longer for visibility */
-.timeline-connector-left {
+/* Make connectors visible only when connecting to text */
+/* Items 1 & 3: Text left, Image right */
+.timeline-item .timeline-connector-left {
+    border-top: 2px dashed var(--color-text);
     min-width: 50px;
 }
 
-.timeline-connector-right {
+.timeline-item .timeline-connector-right {
+    border-top: none; /* Transparent for image side */
     min-width: 50px;
+}
+
+/* Item 2: Image left, Text right - reverse the styling */
+.timeline-item:nth-child(2) .timeline-connector-left {
+    border-top: none; /* Transparent for image side */
+}
+
+.timeline-item:nth-child(2) .timeline-connector-right {
+    border-top: 2px dashed var(--color-text); /* Dashed for text side */
 }
 
 /* Timeline Titles and Descriptions */
