@@ -36,6 +36,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             
             // Update URL without reloading the page
             history.pushState(null, null, targetId);
+
+            // Explicitly set active state for nav link
+            if (typeof setActiveLink === 'function') {
+                setActiveLink(targetId.replace('#',''));
+            }
         }
     });
 });
@@ -55,8 +60,17 @@ window.addEventListener('load', () => {
                     top: targetPosition,
                     behavior: 'smooth'
                 });
+
+                // Ensure correct nav is highlighted on initial load
+                if (typeof setActiveLink === 'function') {
+                    setActiveLink(hash.replace('#',''));
+                }
             }
         }, 100);
+    }
+    // If no hash, highlight first section
+    else if (typeof setActiveLink === 'function') {
+        setActiveLink('home');
     }
 });
 
@@ -72,9 +86,40 @@ window.addEventListener('hashchange', () => {
                 top: targetPosition,
                 behavior: 'smooth'
             });
+
+            // Update active state on hash changes
+            if (typeof setActiveLink === 'function') {
+                setActiveLink(window.location.hash.replace('#',''));
+            }
         }
     }
 });
+
+// Active nav highlighting
+const sections = document.querySelectorAll('section[id]');
+const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+
+function setActiveLink(id) {
+    navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${id}`));
+}
+
+const activeObserver = new IntersectionObserver((entries) => {
+    // Pick the entry with the highest intersection ratio to avoid adjacent section flicker
+    const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible) {
+        setActiveLink(visible.target.id);
+    }
+}, { rootMargin: '0px 0px -10% 0px', threshold: [0.6] });
+
+sections.forEach(sec => activeObserver.observe(sec));
+
+// When a hash is present on load, force-set active to that section id
+if (window.location.hash) {
+    const id = window.location.hash.replace('#','');
+    setActiveLink(id);
+}
 
 // Countdown Timer
 function updateCountdown() {
@@ -191,27 +236,46 @@ if (slides.length > 0) {
     resetSlideshowInterval();
 }
 
-// Navbar always visible - no scroll hiding effect
+// Back-to-top button
+const backToTop = document.getElementById('backToTop');
+if (backToTop) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > window.innerHeight * 0.5) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
 
-// Add fade-in animation on scroll
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+// Add fade-in animation on scroll (respect reduced motion)
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
+let observer;
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+}
 
 // Observe all sections
 document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(30px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section);
+    if (observer) {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(30px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+    }
 });

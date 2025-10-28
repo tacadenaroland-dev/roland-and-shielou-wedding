@@ -22,6 +22,7 @@
                 <li><a href="#schedule" class="nav-link">Schedule</a></li>
                 <li><a href="#travel" class="nav-link">Travel</a></li>
                 <li><a href="#registry" class="nav-link">Registry</a></li>
+                <li><a href="#rsvp" class="nav-link">RSVP</a></li>
                 <li><a href="#invitation" class="nav-link">Invitation</a></li>
                 <!-- <li><a href="#wedding-party" class="nav-link">Wedding Party</a></li> -->
                 <li><a href="#gallery" class="nav-link">Gallery</a></li>
@@ -40,15 +41,15 @@
     <section id="home" class="hero">
         <div class="hero-slideshow">
             <div class="slide active">
-                <img src="assets/images/NPF00357.jpg" alt="Hero Image 1">
+                <img src="assets/images/NPF00357.jpg" alt="Prenup by the shore, holding hands" width="1600" height="900" loading="eager" decoding="async">
                 <div class="slide-overlay"></div>
             </div>
             <div class="slide">
-                <img src="assets/images/NPF00358.jpg" alt="Hero Image 2">
+                <img src="assets/images/NPF00358.jpg" alt="Sunlit portrait close-up" width="1600" height="900" loading="lazy" decoding="async">
                 <div class="slide-overlay"></div>
             </div>
             <div class="slide">
-                <img src="assets/images/NPF00361.jpg" alt="Hero Image 3">
+                <img src="assets/images/NPF00361.jpg" alt="Walking along the beach" width="1600" height="900" loading="lazy" decoding="async">
                 <div class="slide-overlay"></div>
             </div>
         </div>
@@ -61,6 +62,7 @@
 
     <!-- Hero Content (Outside Slideshow) -->
     <section class="hero-content-section">
+        <button id="backToTop" class="back-to-top" aria-label="Back to top">▲</button>
         <div class="hero-content">
             <!-- <h1 class="hero-title">Our Wedding</h1> -->
             <div class="watercolor-highlight"></div>
@@ -145,10 +147,22 @@
     </section>
 
     <!-- Registry Section -->
-    <section id="registry" class="registry">
+    <section id="registry" class="registry" data-anchor="registry">
         <div class="container">
             <h2 class="section-title with-icon icon-gift">Registry</h2>
             <p class="registry-message">Your love and presence are the only gifts we request. However, if you wish to give a token of celebration, we would be truly grateful for a monetary gift to help us begin our life together.</p>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="rsvp" data-anchor="rsvp">
+        <div class="container">
+            <h2 class="section-title with-icon icon-envelope">RSVP</h2>
+            <p class="section-subtitle">We would be honored to celebrate with you. Please let us know if you can attend.</p>
+            <div class="rsvp-actions">
+                <a class="btn btn-primary" href="mailto:rolandandshielou.wedding@gmail.com?subject=Wedding%20RSVP&body=Name%3A%0AGuests%20count%3A%0ADietary%20restrictions%3A%0A">RSVP via Email</a>
+                <a class="btn btn-outline" target="_blank" rel="noopener" href="https://forms.gle/">RSVP via Form</a>
+            </div>
         </div>
     </section>
 
@@ -162,14 +176,18 @@
                     Together with our families, we joyfully invite you to celebrate our wedding.
                 </p>
                 <div class="invitation-details">
-                    <p class="invitation-date">December 6, 2025 at 12:30 PM</p>
-                    <p class="invitation-location">St. James the Great Parish Church<br>Poblacion, Bolinao, Pangasinan</p>
+                    <p class="invitation-date">December 6, 2025 at 5:00 PM
+                        <a class="invitation-action" href="data:text/calendar;charset=utf8,BEGIN:VCALENDAR%0AVERSION:2.0%0ABEGIN:VEVENT%0ASUMMARY:Shielou%20%26%20Roland%20Wedding%0ADTSTART:20251206T170000%0ADTEND:20251206T190000%0ALOCATION:St.%20James%20the%20Great%20Parish%20Church%2C%20Bolinao%2C%20Pangasinan%0ADESCRIPTION:Join%20us%20to%20celebrate%20our%20wedding!%0AEND:VEVENT%0AEND:VCALENDAR" download="roland-shielou-wedding.ics">Save to Calendar</a>
+                    </p>
+                    <p class="invitation-location">St. James the Great Parish Church<br>Poblacion, Bolinao, Pangasinan
+                        <a class="invitation-action" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=St.+James+the+Great+Parish+Church+Bolinao+Pangasinan">Open in Maps</a>
+                    </p>
                 </div>
             </div>
 
             <!-- Section 2: Photo -->
             <div class="invitation-photo">
-                <img src="assets/images/NPF00357.jpg" alt="Shielou and Roland">
+                <img src="assets/images/NPF00357.jpg" alt="Shielou and Roland" width="1200" height="800" loading="lazy" decoding="async">
             </div>
 
             <!-- Section 3: Wedding Party List -->
