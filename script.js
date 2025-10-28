@@ -78,7 +78,7 @@ window.addEventListener('hashchange', () => {
 
 // Countdown Timer
 function updateCountdown() {
-    const targetDate = new Date('2025-12-06T17:00:00'); // December 6, 2025, 5:00 PM
+    const targetDate = new Date('2025-12-06T17:00:00'); // December 6, 2025, 12:30 PM
     const now = new Date();
     const difference = targetDate - now;
 
