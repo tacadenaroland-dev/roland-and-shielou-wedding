@@ -568,7 +568,7 @@ section {
     }
 
     .slide img {
-        object-fit: contain;
+        /* object-fit: contain; */
         background: var(--color-white);
     }
 
