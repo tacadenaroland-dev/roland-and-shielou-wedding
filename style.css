@@ -690,6 +690,45 @@ section:first-of-type {
     margin: var(--spacing-xl) auto;
 }
 
+/* Invitation Attire */
+.invitation-attire {
+    max-width: 800px;
+    margin: var(--spacing-lg) auto;
+    text-align: center;
+}
+
+.subsection-title {
+    font-family: var(--font-body);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+}
+
+.icon-dress::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%233b3b3b'%3E%3Cpath d='M9 3l3 4 3-4 2 2-2 3 4 12H5l4-12-2-3 2-2z'/%3E%3C/svg%3E"); }
+
+.attire-line {
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    margin: .35rem 0;
+}
+
+.attire-note {
+    margin-top: .5rem;
+    font-style: italic;
+    color: var(--color-text-light);
+}
+
+.color-palette {
+    margin-top: var(--spacing-md);
+    display: flex;
+    justify-content: center;
+}
+
+.color-palette img {
+    max-width: 100%;
+    height: auto;
+}
+
 .party-list-title {
     font-family: var(--font-body);
     font-size: 2rem;
