@@ -301,6 +301,33 @@ if (saveToCal) {
     });
 }
 
+// Add to Google Calendar
+const addGoogle = document.getElementById('addGoogleCalendar');
+if (addGoogle) {
+    addGoogle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const title = encodeURIComponent(addGoogle.dataset.title || 'Event');
+        const start = new Date(addGoogle.dataset.start);
+        const end = new Date(addGoogle.dataset.end);
+        const loc = encodeURIComponent(addGoogle.dataset.location || '');
+        const desc = encodeURIComponent(addGoogle.dataset.description || '');
+
+        const pad = (n) => String(n).padStart(2, '0');
+        const toGCal = (d) => (
+            d.getUTCFullYear() +
+            pad(d.getUTCMonth() + 1) +
+            pad(d.getUTCDate()) + 'T' +
+            pad(d.getUTCHours()) +
+            pad(d.getUTCMinutes()) +
+            pad(d.getUTCSeconds()) + 'Z'
+        );
+
+        const dates = `${toGCal(start)}/${toGCal(end)}`;
+        const url = `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${desc}&location=${loc}&sf=true&output=xml`;
+        window.open(url, '_blank', 'noopener');
+    });
+}
+
 // Add fade-in animation on scroll (respect reduced motion)
 const observerOptions = {
     threshold: 0.1,
