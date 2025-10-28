@@ -475,7 +475,8 @@ section:first-of-type {
 
 .invitation-greeting {
     text-align: center;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-xl) 0;
 }
 
 .invitation-couple-names {
@@ -483,21 +484,30 @@ section:first-of-type {
     font-size: 3.5rem;
     font-weight: normal;
     color: var(--color-text);
-    margin-bottom: var(--spacing-md);
-    padding: 1rem 2rem;
+    margin-bottom: var(--spacing-lg);
+    padding: 1.5rem 3rem;
     background-image: url('assets/images/asset_green_paint.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     display: inline-block;
+    transition: all var(--transition-base);
+}
+
+.invitation-couple-names:hover {
+    transform: scale(1.02);
 }
 
 .invitation-message {
     font-family: var(--font-body);
-    font-size: 1.2rem;
-    color: var(--color-text);
-    margin-bottom: var(--spacing-md);
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg);
     font-style: italic;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
 }
 
 .invitation-details {
@@ -521,7 +531,14 @@ section:first-of-type {
     max-width: 600px;
     margin: var(--spacing-xl) auto;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: all var(--transition-base);
+}
+
+.invitation-photo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12);
 }
 
 .invitation-photo img {
@@ -529,6 +546,11 @@ section:first-of-type {
     height: 500px;
     object-fit: cover;
     display: block;
+    transition: transform var(--transition-base);
+}
+
+.invitation-photo:hover img {
+    transform: scale(1.05);
 }
 
 .wedding-party-list {
