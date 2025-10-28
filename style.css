@@ -4,7 +4,7 @@
 
 :root {
     /* Colors */
-    --color-primary: #8B7355;
+    --color-primary: #98ab85;
     --color-text: #333;
     --color-text-light: #666;
     --color-bg-light: #fafafa;
@@ -440,7 +440,6 @@ section {
 .travel-content,
 .registry,
 .wedding-party,
-.gallery,
 .things-to-do {
     text-align: center;
     padding: var(--spacing-md) 0;
@@ -449,10 +448,160 @@ section {
 .travel-content p,
 .registry p,
 .wedding-party p,
-.gallery p,
 .things-to-do p {
     font-size: 1.1rem;
     color: var(--color-text-light);
+}
+
+/* Gallery - Story Timeline */
+.gallery {
+    background: var(--color-white);
+}
+
+.story-timeline {
+    max-width: 1200px;
+    margin: 4rem auto;
+    position: relative;
+}
+
+/* Vertical center line */
+.story-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: var(--color-text);
+    top: 0;
+    transform: translateX(-50%);
+}
+
+/* Timeline Item */
+.timeline-item {
+    display: grid;
+    grid-template-columns: 1fr auto 12px auto 1fr;
+    align-items: center;
+    margin-bottom: 6rem;
+    position: relative;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Timeline Text - Left Side */
+.timeline-text-left {
+    width: 100%;
+    padding-right: 3rem;
+    text-align: left;
+}
+
+/* Timeline Image - Right Side */
+.timeline-image-right {
+    width: 100%;
+    padding-left: 3rem;
+}
+
+.timeline-text-right {
+    width: 100%;
+    padding-left: 3rem;
+    text-align: right;
+}
+
+.timeline-image-left {
+    width: 100%;
+    padding-right: 3rem;
+}
+
+/* For items where image is on left and text on right - Item 2 */
+.timeline-item:nth-child(2) {
+    grid-template-columns: 1fr auto 12px auto 1fr;
+}
+
+.timeline-item:nth-child(2) .timeline-image-left {
+    order: 1;
+    padding-right: 3rem;
+}
+
+.timeline-item:nth-child(2) .timeline-connector-left {
+    order: 2;
+}
+
+.timeline-item:nth-child(2) .timeline-dot {
+    order: 3;
+}
+
+.timeline-item:nth-child(2) .timeline-connector-right {
+    order: 4;
+}
+
+.timeline-item:nth-child(2) .timeline-text-right {
+    order: 5;
+    text-align: right;
+    padding-left: 3rem;
+}
+
+/* Timeline Dot - centered on the vertical line */
+.timeline-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-text);
+    flex-shrink: 0;
+    z-index: 1;
+    position: relative;
+    justify-self: center;
+}
+
+/* Dashed Connectors - visible lines connecting to dots */
+.timeline-connector-left,
+.timeline-connector-right {
+    height: 2px;
+    border-top: 2px dashed var(--color-text);
+    position: relative;
+    background: var(--color-white);
+}
+
+/* Make connectors longer for visibility */
+.timeline-connector-left {
+    min-width: 50px;
+}
+
+.timeline-connector-right {
+    min-width: 50px;
+}
+
+/* Timeline Titles and Descriptions */
+.timeline-title {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timeline-description {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-light);
+}
+
+/* Timeline Images */
+.timeline-image-left img,
+.timeline-image-right img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+    transition: transform var(--transition-base);
+}
+
+.timeline-image-left img:hover,
+.timeline-image-right img:hover {
+    transform: scale(1.05);
 }
 
 /* ====================
@@ -631,6 +780,48 @@ section {
         grid-template-columns: 1fr;
         border-left: none;
         padding-bottom: var(--spacing-sm);
+    }
+
+    /* Story Timeline Mobile */
+    .story-timeline::before {
+        display: none;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .timeline-text-left,
+    .timeline-text-right {
+        order: 1;
+        text-align: center;
+        padding: 0;
+    }
+
+    .timeline-connector-left,
+    .timeline-connector-right {
+        display: none;
+    }
+
+    .timeline-dot {
+        order: 2;
+        margin: 1rem auto;
+    }
+
+    .timeline-image-left,
+    .timeline-image-right {
+        order: 3;
+        padding: 0;
+    }
+
+    .timeline-title {
+        font-size: 1.2rem;
+    }
+
+    .timeline-description {
+        font-size: 0.9rem;
     }
 
     section {
