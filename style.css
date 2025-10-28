@@ -157,7 +157,7 @@ body {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: var(--color-text);
+    background: var(--color-primary);
     transition: all var(--transition-base);
 }
 
@@ -645,7 +645,7 @@ section:first-of-type {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    align-items: center;
+    align-items: baseline;
 }
 
 .names-column p {
