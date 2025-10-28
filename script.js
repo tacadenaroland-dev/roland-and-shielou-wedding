@@ -33,8 +33,47 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 top: targetPosition,
                 behavior: 'smooth'
             });
+            
+            // Update URL without reloading the page
+            history.pushState(null, null, targetId);
         }
     });
+});
+
+// Handle initial hash on page load
+window.addEventListener('load', () => {
+    if (window.location.hash) {
+        // Wait a bit for the page to fully render
+        setTimeout(() => {
+            const hash = window.location.hash;
+            const targetElement = document.querySelector(hash);
+            if (targetElement) {
+                const navHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = targetElement.offsetTop - navHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }, 100);
+    }
+});
+
+// Handle hash change when clicking browser back/forward
+window.addEventListener('hashchange', () => {
+    if (window.location.hash) {
+        const targetElement = document.querySelector(window.location.hash);
+        if (targetElement) {
+            const navHeight = document.querySelector('.navbar').offsetHeight;
+            const targetPosition = targetElement.offsetTop - navHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    }
 });
 
 // Countdown Timer
