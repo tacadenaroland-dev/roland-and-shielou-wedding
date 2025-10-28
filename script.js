@@ -252,6 +252,55 @@ if (backToTop) {
     });
 }
 
+// Save to Calendar (ICS) generator
+const saveToCal = document.getElementById('saveToCalendar');
+if (saveToCal) {
+    saveToCal.addEventListener('click', (e) => {
+        e.preventDefault();
+        const title = saveToCal.dataset.title || 'Event';
+        const start = new Date(saveToCal.dataset.start);
+        const end = new Date(saveToCal.dataset.end);
+        const loc = saveToCal.dataset.location || '';
+        const desc = saveToCal.dataset.description || '';
+
+        function toICSDate(d) {
+            const pad = (n) => String(n).padStart(2, '0');
+            return (
+                d.getUTCFullYear() +
+                pad(d.getUTCMonth() + 1) +
+                pad(d.getUTCDate()) + 'T' +
+                pad(d.getUTCHours()) +
+                pad(d.getUTCMinutes()) +
+                pad(d.getUTCSeconds()) + 'Z'
+            );
+        }
+
+        const ics = [
+            'BEGIN:VCALENDAR',
+            'VERSION:2.0',
+            'PRODID:-//rolandandshielou//wedding//EN',
+            'BEGIN:VEVENT',
+            `SUMMARY:${title}`,
+            `DTSTART:${toICSDate(start)}`,
+            `DTEND:${toICSDate(end)}`,
+            `LOCATION:${loc}`,
+            `DESCRIPTION:${desc}`,
+            'END:VEVENT',
+            'END:VCALENDAR'
+        ].join('\r\n');
+
+        const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'roland-shielou-wedding.ics';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+    });
+}
+
 // Add fade-in animation on scroll (respect reduced motion)
 const observerOptions = {
     threshold: 0.1,
