@@ -344,12 +344,22 @@ body {
 
 section {
     padding: var(--spacing-xl) 0;
+    border-top: 1px dashed #e0e0e0;
+}
+
+section:first-of-type {
+    border-top: none;
+}
+
+.hero {
+    border-top: none;
 }
 
 .container {
     max-width: var(--container-content);
     margin: 0 auto;
     padding: 0 var(--spacing-md);
+    text-align: center;
 }
 
 .section-title {
@@ -358,6 +368,12 @@ section {
     text-align: center;
     margin-bottom: var(--spacing-sm);
     font-weight: normal;
+    padding: 1rem 2rem;
+    background-image: url('assets/images/asset_green_paint.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: inline-block;
 }
 
 .section-subtitle {
@@ -433,10 +449,6 @@ section {
    OTHER SECTIONS
    ==================== */
 
-.travel {
-    background: var(--color-bg-light);
-}
-
 .travel-content,
 .registry,
 .wedding-party,
@@ -451,6 +463,197 @@ section {
 .things-to-do p {
     font-size: 1.1rem;
     color: var(--color-text-light);
+}
+
+/* ====================
+   INVITATION SECTION
+   ==================== */
+
+.invitation {
+    background: var(--color-bg-light);
+}
+
+.invitation-greeting {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.invitation-couple-names {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: normal;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+    padding: 1rem 2rem;
+    background-image: url('assets/images/asset_green_paint.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.invitation-message {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-md);
+    font-style: italic;
+}
+
+.invitation-details {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+}
+
+.invitation-date {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+}
+
+.invitation-location {
+    line-height: 1.6;
+}
+
+.invitation-photo {
+    max-width: 600px;
+    margin: var(--spacing-xl) auto;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.invitation-photo img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.wedding-party-list {
+    max-width: 800px;
+    margin: var(--spacing-xl) auto;
+}
+
+.party-list-title {
+    font-family: var(--font-body);
+    font-size: 2rem;
+    text-align: center;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xl);
+    font-weight: 700;
+}
+
+.party-couple {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+}
+
+.nuptials {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.couple-names {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--color-text);
+    font-weight: normal;
+    padding: 1rem 2rem;
+    background-image: url('assets/images/asset_green_paint.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.party-section {
+    margin-bottom: 2.5rem;
+    margin-bottom: var(--spacing-md);
+    padding: 1.5rem;
+    background: var(--color-bg-light);
+    border-radius: 8px;
+    transition: transform var(--transition-base);
+}
+
+.party-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.party-category {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.party-names {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.party-names p {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text);
+    margin: 0;
+    text-align: center;
+}
+
+.party-names-two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    place-items: center;
+}
+
+.names-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.names-column p {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text);
+    margin: 0;
+    text-align: center;
+}
+
+.role-title {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.party-names-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.5rem;
+    justify-items: center;
+}
+
+.party-names-grid p {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text);
+    margin: 0;
+    text-align: center;
 }
 
 /* Gallery - Story Timeline */
@@ -798,6 +1001,8 @@ section {
 
     .section-title {
         font-size: 2.5rem;
+        padding: 0.75rem 1.5rem;
+        background-size: 95% auto;
     }
 
     .timeline-item {
@@ -857,6 +1062,66 @@ section {
         font-size: 0.9rem;
     }
 
+    /* Invitation Section Mobile */
+    .invitation-couple-names {
+        font-size: 2.5rem;
+        padding: 0.75rem 1.5rem;
+        background-size: 95% auto;
+    }
+
+    .invitation-message {
+        font-size: 1rem;
+    }
+
+    .invitation-date {
+        font-size: 1.1rem;
+    }
+
+    .invitation-location {
+        font-size: 0.95rem;
+    }
+
+    .invitation-photo {
+        margin: var(--spacing-md) auto;
+    }
+
+    .invitation-photo img {
+        height: 350px;
+    }
+
+    .party-list-title {
+        font-size: 1.5rem;
+    }
+
+    .party-couple {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .couple-names {
+        font-size: 2rem;
+        padding: 0.75rem 1.5rem;
+        background-size: 95% auto;
+    }
+
+    .party-category {
+        font-size: 1.2rem;
+    }
+
+    .party-names p,
+    .names-column p {
+        font-size: 0.9rem;
+    }
+
+    .party-names-two-columns {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .party-names-grid {
+        grid-template-columns: 1fr;
+    }
+
     section {
         padding: 3rem 0;
     }
@@ -913,10 +1178,24 @@ section {
 
     .section-title {
         font-size: 2rem;
+        padding: 0.5rem 1rem;
+        background-size: 100% auto;
     }
 
     .hero-content-section {
         padding: 1.5rem 0.75rem;
+    }
+
+    .invitation-couple-names {
+        font-size: 2rem;
+        padding: 0.5rem 1rem;
+        background-size: 100% auto;
+    }
+
+    .couple-names {
+        font-size: 1.8rem;
+        padding: 0.5rem 1rem;
+        background-size: 100% auto;
     }
 }
 
