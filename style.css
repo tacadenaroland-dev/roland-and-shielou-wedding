@@ -781,7 +781,7 @@ section:first-of-type {
 
 .party-category {
     font-family: var(--font-body);
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 700;
     color: var(--color-text);
     margin-bottom: 1rem;
@@ -803,6 +803,10 @@ section:first-of-type {
     color: var(--color-text);
     margin: 0;
     text-align: center;
+}
+
+.party-name {
+    font-style: italic;
 }
 
 .party-names-two-columns {
@@ -1295,10 +1299,6 @@ section:first-of-type {
         font-size: 2rem;
         padding: 0.75rem 1.5rem;
         background-size: 95% auto;
-    }
-
-    .party-category {
-        font-size: 1.2rem;
     }
 
     .party-names p,
