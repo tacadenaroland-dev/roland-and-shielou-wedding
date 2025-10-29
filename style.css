@@ -820,7 +820,7 @@ section:first-of-type {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    align-items: baseline;
+    /* align-items: baseline; */
 }
 
 .names-column p {
