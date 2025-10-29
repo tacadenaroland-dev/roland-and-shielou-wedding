@@ -334,24 +334,10 @@ const observerOptions = {
     rootMargin: '0px 0px -50px 0px'
 };
 
-let observer;
-if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-}
+// Disable scroll reveal animations (remove opacity/transform/transition inline styles)
+let observer = null;
 
 // Observe all sections
 document.querySelectorAll('section').forEach(section => {
-    if (observer) {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(30px)';
-        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(section);
-    }
+    // No-op: animations disabled
 });

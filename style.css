@@ -1089,6 +1089,44 @@ section:first-of-type {
    ==================== */
 
 @media (max-width: 768px) {
+    /* Disable all hover transforms and transitions for mobile to prevent scrolling bugs */
+    * {
+        transition: none !important;
+    }
+    
+    .invitation-couple-names:hover {
+        transform: none !important;
+    }
+    
+    .invitation-photo:hover {
+        transform: none !important;
+    }
+    
+    .invitation-photo:hover img {
+        transform: none !important;
+    }
+    
+    .party-section:hover {
+        transform: none !important;
+    }
+    
+    .faq-item:hover {
+        transform: none !important;
+    }
+    
+    .timeline-image-left img:hover,
+    .timeline-image-right img:hover {
+        transform: none !important;
+    }
+    
+    .btn-primary:hover {
+        transform: none !important;
+    }
+    
+    .back-to-top:hover {
+        transform: none !important;
+    }
+
     /* Navigation */
     .nav-container {
         padding: var(--spacing-sm);
