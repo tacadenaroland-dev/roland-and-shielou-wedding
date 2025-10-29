@@ -1380,6 +1380,20 @@ section:first-of-type {
         background: var(--color-white);
     }
 
+    /* Smaller slide indicators on small phones */
+    .slide-indicators {
+        gap: 0.5rem;
+    }
+
+    .indicator {
+        width: 28px;
+        height: 4px;
+    }
+
+    .indicator.active {
+        width: 28px;
+    }
+
     .hero-title {
         font-size: 2rem;
     }
