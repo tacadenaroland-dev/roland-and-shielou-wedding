@@ -1128,7 +1128,7 @@ section:first-of-type {
    ==================== */
 
 .footer {
-    background: var(--color-bg-dark);
+    background: var(--color-primary);
     color: var(--color-white);
     padding: 3rem 0;
     text-align: center;
