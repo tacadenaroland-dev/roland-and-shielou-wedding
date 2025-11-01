@@ -324,7 +324,7 @@ body {
     font-size: 6rem;
     font-weight: normal;
     margin-bottom: 1.5rem;
-    line-height: 1.2;
+    /* line-height: 1.2; */
     color: var(--color-text);
     padding: 1.5rem 3rem;
     background-image: url('assets/images/asset_green_paint.png');
@@ -1130,7 +1130,7 @@ section:first-of-type {
 .footer {
     background: var(--color-primary);
     color: var(--color-white);
-    padding: 3rem 0;
+    padding: 3rem;
     text-align: center;
 }
 
