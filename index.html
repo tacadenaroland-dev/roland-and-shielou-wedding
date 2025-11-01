@@ -206,7 +206,14 @@
 
             <!-- Section 2: Photo -->
             <div class="invitation-photo">
-                <img src="assets/images/NPF00357.jpg" alt="Shielou and Roland" width="1200" height="800" loading="lazy" decoding="async">
+                <div class="invitation-photo-grid">
+                    <div>
+                        <img src="assets/images/invitation_section/AC (46).jpg" alt="Shielou and Roland" width="1200" height="800" loading="lazy" decoding="async">
+                    </div>
+                    <!-- <div>
+                        <img src="assets/images/invitation_section/AC (47).jpg" alt="Shielou and Roland" width="1200" height="800" loading="lazy" decoding="async">
+                    </div> -->
+                </div>
             </div>
 
             <!-- Section 3: Wedding Party List -->
@@ -409,53 +416,176 @@
         </div>
     </section> -->
 
-    <!-- Gallery Section (Our Story Timeline) -->
+    <!-- Gallery Section -->
+    <style>
+        #gallery .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        #gallery h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-auto-rows: 150px;
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            z-index: 10;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+            opacity: 1;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .overlay {
+            display: none;
+        }
+
+        /* Row 1 */
+        .item1 { grid-column: 1 / 3; grid-row: 1 / 3; } /* L */
+        .item2 { grid-column: 3 / 5; grid-row: 1 / 2; } /* L */
+        .item3 { grid-column: 5 / 7; grid-row: 1 / 4; } /* P */
+
+        /* Row 2 */
+        .item4 { grid-column: 1 / 2; grid-row: 3 / 5; } /* L */
+        .item5 { grid-column: 2 / 3; grid-row: 3 / 5; } /* L */
+        .item6 { grid-column: 3 / 5; grid-row: 2 / 4; } /* L */
+
+        /* Row 3 */
+        .item7 { grid-column: 1 / 3; grid-row: 5 / 8; } /* P */
+        .item8 { grid-column: 3 / 5; grid-row: 4 / 6; } /* L - same width as 9-L */
+        .item9 { grid-column: 5 / 7; grid-row: 4 / 6; } /* L - same width as 8-L */
+
+        /* Row 4 */
+        .item10 { grid-column: 3 / 5; grid-row: 6 / 8; } /* L */
+
+        /* Row 5 */
+        .item11 { grid-column: 5 / 7; grid-row: 6 / 10; } /* P - base aligns with 12-L and 13-L */
+        .item12 { grid-column: 3 / 5; grid-row: 8 / 10; } /* L */
+
+        /* Row 6 */
+        .item13 { grid-column: 1 / 3; grid-row: 8 / 10; } /* L */
+        .item14 { grid-column: 5 / 7; grid-row: 10 / 13; } /* P */
+
+        /* Bottom row */
+        .item15 { grid-column: 1 / 5; grid-row: 10 / 13; } /* P - 2/3 of row */
+
+        @media (max-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+                grid-auto-rows: 120px;
+            }
+            
+            .item1 { grid-column: 1 / 3; grid-row: 1 / 3; }
+            .item2 { grid-column: 3 / 5; grid-row: 1 / 2; }
+            .item3 { grid-column: 3 / 5; grid-row: 2 / 5; }
+            .item4 { grid-column: 1 / 2; grid-row: 3 / 5; }
+            .item5 { grid-column: 2 / 3; grid-row: 3 / 5; }
+            .item6 { grid-column: 1 / 3; grid-row: 5 / 7; }
+            .item7 { grid-column: 3 / 5; grid-row: 5 / 8; }
+            .item8 { grid-column: 1 / 3; grid-row: 7 / 9; }
+            .item9 { grid-column: 3 / 5; grid-row: 8 / 10; }
+            .item10 { grid-column: 1 / 2; grid-row: 9 / 12; }
+            .item11 { grid-column: 2 / 3; grid-row: 9 / 13; } /* P - base aligns with 12-L and 13-L */
+            .item12 { grid-column: 3 / 4; grid-row: 10 / 13; }
+            .item13 { grid-column: 4 / 5; grid-row: 10 / 13; }
+            .item14 { grid-column: 4 / 5; grid-row: 13 / 16; }
+            .item15 { grid-column: 1 / 4; grid-row: 13 / 16; } /* 2/3 of row (3 out of 4 columns) */
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 100px;
+            }
+            
+            #gallery h1 {
+                font-size: 2em;
+            }
+            
+            .gallery-item {
+                grid-column: auto / span 1 !important;
+                grid-row: auto / span 2 !important;
+            }
+            
+            .item15 {
+                grid-column: 1 / -1 !important; /* Full width */
+            }
+        }
+    </style>
     <section id="gallery" class="gallery">
         <div class="container">
-            <h2 class="section-title with-icon icon-photos">Gallery</h2>
-            <p class="section-subtitle">gallery coming soon...</p>
-            
-            <!-- <div class="story-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-text-left">
-                        <h3 class="timeline-title">THE BEGINNING</h3>
-                        <p class="timeline-description">Childhood classmates who always found their way back to each other through the years.</p>
-                    </div>
-                    <div class="timeline-connector-left"></div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-connector-right"></div>
-                    <div class="timeline-image-right">
-                        <img src="assets/images/NPF00357.jpg" alt="The Beginning">
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-image-left">
-                        <img src="assets/images/NPF00358.jpg" alt="Reconnection">
-                    </div>
-                    <div class="timeline-connector-left"></div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-connector-right"></div>
-                    <div class="timeline-text-right">
-                        <h3 class="timeline-title">RECONNECTION</h3>
-                        <p class="timeline-description">A promise made in laughter that became reality when fate brought us back together.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-text-left">
-                        <h3 class="timeline-title">FOREVER AFTER</h3>
-                        <p class="timeline-description">Beginning our journey together, ready to keep that promise forever.</p>
-                    </div>
-                    <div class="timeline-connector-left"></div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-connector-right"></div>
-                    <div class="timeline-image-right">
-                        <img src="assets/images/NPF00361.jpg" alt="Forever After">
-                    </div>
-                </div>
-            </div> -->
+            <h1>Gallery</h1>
+            <div class="gallery-grid" id="galleryGrid"></div>
         </div>
+    
+        <script>
+            const images = [
+                { type: 'landscape', filename: 'AC (8).jpg' },
+                { type: 'landscape', filename: 'AC (44).jpg' },
+                { type: 'portrait', filename: 'AC (21).jpg' },
+                { type: 'portrait', filename: 'AC (36).jpg' },
+                { type: 'portrait', filename: 'AC (80).jpg' },
+                { type: 'landscape', filename: 'AC (47).jpg' },
+                { type: 'portrait', filename: 'AC (1).jpg' },
+                { type: 'landscape', filename: 'AC (59).jpg' },
+                { type: 'landscape', filename: 'AC (69).jpg' },
+                { type: 'landscape', filename: 'AC (79).jpg' },
+                { type: 'portrait', filename: 'AC (129).jpg' },
+                { type: 'landscape', filename: 'AC (71).jpg' },
+                { type: 'landscape', filename: 'AC (105).jpg' },
+                { type: 'portrait', filename: 'AC (130).jpg' },
+                { type: 'landscape', filename: 'AC (128).jpg' }
+            ];
+    
+            const gallery = document.getElementById('galleryGrid');
+    
+            images.forEach((img, index) => {
+                const item = document.createElement('div');
+                const id = index + 1;
+                const orientation = img.type === 'portrait' ? 'P' : 'L';
+                item.className = `gallery-item item${id}`;
+                item.setAttribute('data-id', `${id}-${orientation}`);
+                
+                const image = document.createElement('img');
+                const imagePath = `assets/images/gallery/${img.filename}`;
+                image.src = imagePath;
+                image.alt = `Gallery image ${id} - ${img.type}`;
+                image.decoding = 'async';
+                
+                item.appendChild(image);
+                gallery.appendChild(item);
+            });
+        </script>
     </section>
 
     <!-- Things To Do Section -->
