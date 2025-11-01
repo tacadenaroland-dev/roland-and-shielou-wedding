@@ -337,6 +337,7 @@ body {
 .name-first,
 .name-second {
     display: block;
+    font-weight: bold;
 }
 
 .name-ampersand {
