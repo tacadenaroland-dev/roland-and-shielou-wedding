@@ -21,7 +21,7 @@
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#schedule" class="nav-link">Schedule</a></li>
-                <li><a href="#travel" class="nav-link">Travel</a></li>
+                <!-- <li><a href="#travel" class="nav-link">Travel</a></li> -->
                 <li><a href="#registry" class="nav-link">Registry</a></li>
                 <li><a href="#invitation" class="nav-link">Invitation</a></li>
                 <!-- <li><a href="#wedding-party" class="nav-link">Wedding Party</a></li> -->
@@ -121,7 +121,11 @@
                     <div class="timeline-time">12:30 PM</div>
                     <div class="timeline-content">
                         <h3 class="with-icon icon-church">Ceremony</h3>
-                        <p>St. James the Great Parish Church - Poblacion, Bolinao, Pangasinan</p>
+                        <p>St. James the Great Parish Church - Poblacion, Bolinao, Pangasinan
+                            <a class="invitation-action" target="_blank" rel="noopener"
+                               href="https://www.google.com/maps/search/?api=1&query=St.+James+the+Great+Parish+Church+Bolinao+Pangasinan">Open in Maps</a>
+                        </p>
+
                     </div>
                 </div>
                 <!-- <div class="timeline-item">
@@ -135,7 +139,10 @@
                     <div class="timeline-time"></div>
                     <div class="timeline-content">
                         <h3 class="with-icon icon-dining">Reception & Dinner</h3>
-                        <p>Cris Del Mar Resort - Cabatuan Street Luciente 1st, Bolinao, 2406 Pangasinan</p>
+                        <p>Cris Del Mar Resort - Cabatuan Street Luciente 1st, Bolinao, 2406 Pangasinan
+                            <a class="invitation-action" target="_blank" rel="noopener"
+                               href="https://www.google.com/maps/search/?api=1&query=Cris+Del+Mar+Resort+Cabatuan+Street+Luciente+1st+Bolinao+Pangasinan">Open in Maps</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -143,7 +150,7 @@
     </section>
 
     <!-- Travel Section -->
-    <section id="travel" class="travel">
+    <!-- <section id="travel" class="travel">
         <div class="container">
             <h2 class="section-title with-icon icon-plane">Travel</h2>
             <div class="travel-content">
@@ -159,7 +166,7 @@
                 </p>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Registry Section -->
     <section id="registry" class="registry" data-anchor="registry">
@@ -180,7 +187,7 @@
                 <p class="invitation-message">
                     Together with our families, we joyfully invite you to celebrate our wedding.
                 </p>
-                <div class="invitation-details">
+                <!-- <div class="invitation-details">
                     <p class="invitation-date">December 6, 2025 at 12:30 PM
                         <a id="saveToCalendar" class="invitation-action" href="#"
                            data-title="Shielou & Roland Wedding"
@@ -202,7 +209,7 @@
                     <p class="invitation-location">St. James the Great Parish Church<br>Poblacion, Bolinao, Pangasinan
                         <a class="invitation-action" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=St.+James+the+Great+Parish+Church+Bolinao+Pangasinan">Open in Maps</a>
                     </p>
-                </div>
+                </div> -->
             </div>
 
             <!-- Section 2: Photo -->
@@ -343,7 +350,7 @@
                     <h4 class="party-category with-icon icon-veil">Veil</h4>
                     <div class="party-names-two-columns">
                         <div class="names-column">
-                            <p class="party-name">Mr. Mark Glenn</p>
+                            <p class="party-name">Mr. Mark Glenn Pedrasa</p>
                         </div>
                         <div class="names-column">
                             <p class="party-name">Ms. Marry Kristhene Dugay</p>
@@ -366,14 +373,18 @@
 
                 <div class="party-section">
                     <h4 class="party-category with-icon icon-flower">Flower Girls</h4>
-                    <div class="party-names-grid">
-                        <p class="party-name">Ms. Samantha Tacadena</p>
-                        <p class="party-name">Ms. Zamira Caido</p>
-                        <p class="party-name">Ms. Zaina Skye Caido</p>
-                        <p class="party-name">Ms. Shiela Ariola</p>
-                        <p class="party-name">Ms. Akisha Leigh Caido</p>
-                        <p class="party-name">Ms. Rica May Caido</p>
-                        <p class="party-name">Ms. Mj Tacadena</p>
+                    <div class="flower-girls-layout">
+                        <p class="party-name flower-girl-single">Ms. Mj Tacadena</p>
+                        <p class="party-name flower-girl-single">Ms. Zamira Caido</p>
+                        <p class="party-name flower-girl-single">Ms. Shiela Ariola</p>
+                        <div class="flower-girls-row">
+                            <p class="party-name flower-girl-pair">Ms. Akisha Leigh Caido</p>
+                            <p class="party-name flower-girl-pair">Ms. Rica May Caido</p>
+                        </div>
+                        <div class="flower-girls-row">
+                            <p class="party-name flower-girl-pair">Ms. Samantha Tacadena</p>
+                            <p class="party-name flower-girl-pair">Ms. Zaina Skye Caido</p>
+                        </div>
                     </div>
                 </div>
 
@@ -385,16 +396,16 @@
                 </div>
 
                 <div class="party-section">
-                    <h4 class="party-category with-icon icon-rings">Ring Bearer & Bible Bearer</h4>
-                    <div class="party-names-two-columns">
-                        <div class="names-column">
-                            <p class="role-title">Ring Bearer</p>
-                            <p class="party-name">Mr. Kaiden Celeste</p>
-                        </div>
-                        <div class="names-column">
-                            <p class="role-title">Bible Bearer</p>
-                            <p class="party-name">Mr. Zildjian Caido</p>
-                        </div>
+                    <h4 class="party-category with-icon icon-coin">Ring Bearer</h4>
+                    <div class="party-names">
+                        <p class="party-name">Mr. Kaiden Celeste</p>
+                    </div>
+                </div>
+
+                <div class="party-section">
+                    <h4 class="party-category with-icon icon-coin">Bibble Bearer</h4>
+                    <div class="party-names">
+                        <p class="party-name">Mr. Zildjian Caido</p>
                     </div>
                 </div>
             </div>
@@ -407,6 +418,9 @@
                 <p class="attire-note">(No White/Black Dress)</p>
                 <div class="color-palette">
                     <img src="assets/images/color_palette.svg" alt="Color Palette" width="600" height="120" loading="lazy" decoding="async">
+                </div>
+                <div class="attire-image">
+                    <img src="assets/images/attire/attire_final2.png" alt="Attire Guide" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>

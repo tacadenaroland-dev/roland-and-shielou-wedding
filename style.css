@@ -738,6 +738,24 @@ section:first-of-type {
     height: auto;
 }
 
+.attire-image {
+    margin-top: var(--spacing-md);
+    display: flex;
+    justify-content: center;
+}
+
+.attire-image img {
+    width: 50%;
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .attire-image img {
+        width: 75%;
+    }
+}
+
 .party-list-title {
     font-family: var(--font-body);
     font-size: 2rem;
@@ -856,6 +874,40 @@ section:first-of-type {
     color: var(--color-text);
     margin: 0;
     text-align: center;
+}
+
+/* Flower Girls Custom Layout */
+.flower-girls-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.flower-girl-single {
+    width: 100%;
+    text-align: center;
+}
+
+.flower-girls-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.flower-girl-pair {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .flower-girls-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .flower-girl-pair {
+        width: 100%;
+    }
 }
 
 /* Gallery - Story Timeline */
